@@ -4,6 +4,11 @@ on:
         branches:
             - master
             - Develop
+    pull_request:
+        branches:
+            - master
+            - Develop
+            - F1
 jobs:
     demo-push:
         if: github.event_name == 'push'
@@ -11,6 +16,13 @@ jobs:
         steps:
             - name: "Demo Hello world!"
               run: echo "Hello World!"
+    demo-pull:
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "details"
+              run: echo "Event ${{ github.event_name }} | Repo ${{ github.repository }} | Branch ${{ github.ref }}"
+
 
 
 
