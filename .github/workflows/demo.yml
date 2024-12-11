@@ -1,0 +1,17 @@
+name: Demo of githubActions
+on:
+    push:
+        branches:
+            - master
+            - Develop
+jobs:
+    demo-push:
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Demo Hello world!"
+              run: echo "Hello World!"
+
+
+
+
